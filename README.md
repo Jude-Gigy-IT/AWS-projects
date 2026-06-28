@@ -28,7 +28,7 @@ The lab used a single AWS account with multiple IAM users, groups, and managed p
 CloudTrail was enabled to monitor and audit IAM-related management events.
 </p>
 
-<img src="architecture/aws-iam-architecture.png" alt="AWS IAM Architecture Diagram">
+<img src="screenshots/Architecture" alt="AWS IAM Architecture Diagram">
 
 <h2>IAM User and Group Design</h2>
 
@@ -66,13 +66,13 @@ CloudTrail was enabled to monitor and audit IAM-related management events.
 </table>
 
 <h3>IAM Users</h3>
-<img src="screenshots/02-iam-users.png" alt="IAM Users">
+<img src="screenshots/IAM-users" alt="IAM Users">
 
 <h3>IAM Groups</h3>
-<img src="screenshots/03-iam-groups.png" alt="IAM Groups">
+<img src="screenshots/IAM-groups" alt="IAM Groups">
 
 <h3>Developer Group Policy</h3>
-<img src="screenshots/04-developer-group-policy.png" alt="Developer Group Policy">
+<img src="screenshots/developer-permissions" alt="Developer Group Policy">
 
 <h2>Security Controls Implemented</h2>
 
@@ -90,10 +90,10 @@ For example, the Developer user could view EC2 resources but could not modify un
 
 <h3>Multi-Factor Authentication</h3>
 <p>
-MFA was enabled for the administrative account to strengthen authentication security and reduce the risk of account compromise.
+MFA was enabled for the developer account to strengthen authentication security and reduce the risk of account compromise.
 </p>
 
-<img src="screenshots/05-mfa-enabled.png" alt="MFA Enabled">
+<img src="screenshots/developer-mfa" alt="MFA Enabled">
 
 <h2>Permission Validation</h2>
 
@@ -103,26 +103,26 @@ The Developer user attempted an action outside the permissions granted by the De
 AWS denied the request, confirming that least privilege controls were working as expected.
 </p>
 
-<img src="screenshots/06-access-denied-developer.png" alt="Access Denied Developer Test">
+<img src="screenshots/developer-permission-failure" alt="Access Denied Developer Test">
 
 <h3>Administrator Access Test</h3>
 <p>
 The Admin user successfully performed an administrative action, validating that the Admins group had the correct level of access.
 </p>
 
-<img src="screenshots/07-admin-success.png" alt="Administrator Success">
+<img src="screenshots/admin-perm-success" alt="Administrator Success">
 
 <h2>CloudTrail Auditing</h2>
 <p>
 CloudTrail was enabled to record AWS management events.
-After creating a test IAM user, the <code>CreateUser</code> event appeared in CloudTrail Event History.
+After creating and deleting a test IAM user, the <code>CreateUser</code> event appeared in CloudTrail Event History.
 This demonstrated that IAM administrative actions were being logged for auditing and investigation.
 </p>
 
-<img src="screenshots/08-cloudtrail-event-history.png" alt="CloudTrail Event History">
+<img src="screenshots/user-created-deleted" alt="CloudTrail Event History">
 
-<h3>CloudTrail Event Details</h3>
-<img src="screenshots/09-cloudtrail-createuser-details.png" alt="CloudTrail CreateUser Event Details">
+<h3>CloudTrail Event History</h3>
+<img src="screenshots/event-history" alt="CloudTrail CreateUser Event Details">
 
 <h2>Lessons Learned</h2>
 <ul>
